@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer.astro";
 ---
 
 <!DOCTYPE html>
@@ -10,7 +12,8 @@ import "../styles/global.css";
     <title>Document</title>
 </head>
 <body>
-    <h1>Ladrillos.club</h1>
+    <Header title="Ladrillos.club y que pasa"/>
     <slot />
+    <Footer />
 </body>
 </html>

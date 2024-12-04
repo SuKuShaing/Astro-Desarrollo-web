@@ -1,5 +1,4 @@
-h1 {
-    font-size: 2em;
-    margin-bottom: 0.5em;
-    color: brown;
-}
+/* The integration's default injected base.css file */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -12,7 +12,10 @@ $ npm run build
 
 > generador-de-sitios-estaticos---fazt@0.0.1 build
 > astro build
-EPERM: operation not permitted, rmdir 'D:\Progra\Youtube\Astro\Generador de sitios estáticos - Fazt\node_modules\.vite\deps'
+
+13:22:14 [types] Generated 1ms
+13:22:14 [vite] Re-optimizing dependencies because lockfile has changed
+EPERM: operation not permitted, rmdir 'D:\Progra\Platzi\Cursos Webs\Astro-Desarrollo-web\node_modules\.vite\deps'
   Stack trace:
 
 ```

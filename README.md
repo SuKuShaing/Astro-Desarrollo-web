@@ -2,6 +2,12 @@
 
 con el profesor Oscar Barajas
 
+## Temas tocados en este tutorial
+- Rutas dinamicas, hechas muy bien, pero incluye typescript
+
+
+
+
 
 
 

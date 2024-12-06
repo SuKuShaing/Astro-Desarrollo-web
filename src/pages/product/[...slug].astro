@@ -1,25 +1,29 @@
 ---
-// import type { GetStaticPaths } from "astro";
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Product from "../../layouts/Product.astro";
-// import type { ACTION_ERROR_CODES, ACTION_QUERY_PARAMS } from "astro:actions";
 
+// Función para generar rutas estáticas para cada producto
 export async function getStaticPaths() {
+	// Obtiene todos los productos de la colección "products"
 	const products = await getCollection("products");
+	// Mapea cada producto para generar una ruta estática basada en su slug
 	return products.map((product) => ({
-		params: { slug: product.slug },
-		props: product,
+		params: { slug: product.slug },  // Parámetros de la ruta
+		props: product, // Propiedades del producto
 	}));
 };
 
-// const { title, description, pubDate, heroImage, price, category } = Astro.props;
-
+// Define el tipo Props como una entrada de la colección "product"
 type Props = CollectionEntry<"product">;
 
+// Obtiene el producto actual de las propiedades de Astro
 const product: Props = Astro.props;
+// Renderiza el contenido del producto
 const { Content } = await product.render();
 ---
 
+<!-- Renderiza el componente Product pasando los datos del producto -->
 <Product {...product.data}>
+	<!-- Incluye el contenido renderizado del producto -->
 	<Content />
 </Product>

@@ -1,45 +1,12 @@
 ---
-import Welcome from "../components/Welcome.astro";
-import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import Base from "@layouts/Base.astro";
+import Products from "@layouts/Products.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// obtener todos los productos dentro de la colección
+const products = (await getCollection("products"))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
-
-<Layout>
-	<section class="bg-gray-50">
-		<div
-			class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center"
-		>
-			<div class="mx-auto max-w-xl text-center">
-				<h1 class="text-3xl font-extrabold sm:text-5xl">
-					Understand User Flow.
-					<strong class="font-extrabold text-red-700 sm:block">
-						Increase Conversion.
-					</strong>
-				</h1>
-
-				<p class="mt-4 sm:text-xl/relaxed">
-					Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-					illo tenetur fuga ducimus numquam ea!
-				</p>
-
-				<div class="mt-8 flex flex-wrap justify-center gap-4">
-					<a
-						class="block w-full rounded bg-red-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500 sm:w-auto"
-						href="#"
-					>
-						Get Started
-					</a>
-
-					<a
-						class="block w-full rounded px-12 py-3 text-sm font-medium text-red-600 shadow hover:text-red-700 focus:outline-none focus:ring active:text-red-500 sm:w-auto"
-						href="#"
-					>
-						Learn More
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-</Layout>
+<Base  frontmatter={{ title:"Ladrillos.club - Index" }}>
+	<Products products={products} />
+</Base>
